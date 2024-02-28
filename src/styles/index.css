@@ -1,12 +1,36 @@
-
-/* 
-
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+body {
+    background: gray;
+    color: white;
+}
+.chooseBox {
+    background: #383d39;
+    width: 600px;
+    height: 220px;
+}
+.inputClass {
+    position: relative;
+}
+.X {
+    font-size: 60px;
+    color: yellow;
+    background: #262927;
+    border: 0;
+    margin-right: 5px;
+    width: 95px;
+    height: 95px;
+}
+.X:hover {
+    background: #717780;
+}
+.O {
+    font-size: 60px;
+    color: lightblue;
+    background: #262927;
+    border: 0;
+    margin-left: 5px;
+    width: 95px;
+    height: 95px;
+}
+.O:hover {
+    background: #717780;
+}
