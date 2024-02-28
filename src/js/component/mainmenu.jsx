@@ -25,10 +25,7 @@ const MainMenu = () => {
         <div className="playingField" style={{display: visible ? "none" : "block" }}>
             <TicTacToe /> 
             <button className="restartBtn btn btn-secondary" onClick={() => {
-                if(visible == false){
-                    setVisible(!visible)
-                }
-                }}>Start Over!</button>
+                if(visible == false){setVisible(!visible)}}}>Start Over!</button>
         </div>
     </div>
     )

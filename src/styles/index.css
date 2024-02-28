@@ -44,10 +44,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows: 1fr 1fr 1fr ;
-    gap: 15px;
+    gap: 0px;
+    margin: auto;
     position: relative;
-
- margin: auto;
  
 }
 span{
@@ -55,17 +54,61 @@ span{
     width: 100px;
     height: 100px;
     font-size: 60px;
-    color: gray;
+    color: #666361;
+    
+    cursor: pointer;
 }
 
 .white, .black{
     width: 100px;
     height: 100px;
-    background-color: lightcoral;
+    background-color: grey;
     display: flex;
    justify-content: center;
 
 }
 .restartBtn {
     margin-top: 50px;
+}
+.c1 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+.c12 {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+.c13 {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+.c21 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+.c22 {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+.c23 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+.c31 {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+.c32 {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;   
+}
+.c33 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
 }

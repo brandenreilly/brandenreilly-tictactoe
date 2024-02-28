@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 const winningOutcomes = 
    [
@@ -16,11 +16,15 @@ const winningOutcomes =
     [0,0,1,0,1,0,1,0,0],
     ]
 
-const TicTacToe = () => {
+const TicTacToe = (props) => {
     const [boardValue, setBoardValue] = useState(['','','','','','','','','']);
     const [countMove, setCountMove] = useState(0);
     const [cellStatus, setCellStatus] = useState([0,0,0,0,0,0,0,0,0]);
+    const [winner, setWinner] = useState("")
     let arrayStatus=[0,0,0,0,0,0,0,0,0];
+    useEffect(()=>{
+        testWinner()
+    },[countMove])
     
     function Move_c11 (index){
     // Verify the status of the cell
@@ -33,14 +37,35 @@ const TicTacToe = () => {
         setCellStatus(arrayStatus);
         if(countMove%2!=0){
             setBoardValue(boardValue.map((elm,ind)=>ind==index? 'O': elm));
-            //setBoardValue([]);
+            setCellStatus(cellStatus.map((elm,ind)=>ind==index? 2: elm));
         }
         if(countMove%2==0){
             setBoardValue(boardValue.map((elm,ind)=>ind==index? 'X': elm));
+            setCellStatus(cellStatus.map((elm,ind)=>ind==index? 1: elm));
         }
         setCountMove(countMove+1);
+    } 
+}  
+
+let topRow = boardValue[0] + boardValue[1] + boardValue[2]
+let middleRow = boardValue[3] + boardValue[4] + boardValue[5]
+let bottomRow = boardValue[6] + boardValue[7] + boardValue[8]
+let leftCol = boardValue[0] + boardValue[3] + boardValue[6]
+let middleCol = boardValue[1] + boardValue[4] + boardValue[7]
+let rightCol = boardValue[2] + boardValue[5] + boardValue[8]
+let firstDiag = boardValue[0] + boardValue[4] + boardValue[8]
+let secondDiag = boardValue[2] + boardValue[4] + boardValue[6]
+const testWinner = () => {
+    if(topRow.match('XXX') || middleRow.match('XXX') || bottomRow.match('XXX') || leftCol.match('XXX') || middleCol.match('XXX') || rightCol.match('XXX') || firstDiag.match('XXX') || secondDiag.match('XXX')){
+        setWinner("X")
+        
+    }else if(topRow.match('OOO') || middleRow.match('OOO') || bottomRow.match('OOO') || leftCol.match('OOO') || middleCol.match('OOO') || rightCol.match('OOO') || firstDiag.match('OOO') || secondDiag.match('OOO')){
+        setWinner("O")
     }
-} 
+}
+if(winner){
+    alert(winner + " has won!")
+}
 	return	(
         <div class="container">
        <div className="theBoard">
@@ -54,7 +79,6 @@ const TicTacToe = () => {
         <div className="c32 black"><span onClick={()=>Move_c11(7)}>{boardValue[7]}</span></div>
         <div className="c33 white"><span onClick={()=>Move_c11(8)}>{boardValue[8]}</span></div>
        </div>
-       <button className="btn btn-primary" onClick={()=>{console.log(cellStatus)}}>Get Outcome</button>
 </div>
     );
 };
