@@ -1,13 +1,26 @@
 import React from "react";
 import { useState } from "react";
 
+const winningOutcomes = 
+   [
+    //All Possible Horizontal Winning Outcomes
+    [1,1,1,0,0,0,0,0,0],
+    [0,0,0,1,1,1,0,0,0],
+    [0,0,0,0,0,0,1,1,1],
+    //All Possible Vertical Winning Outcomes
+    [1,0,0,1,0,0,1,0,0],
+    [0,1,0,0,1,0,0,1,0],
+    [0,0,1,0,0,1,0,0,1],
+    //All Possible Diagonal Winning Outcomes
+    [1,0,0,0,1,0,0,0,1],
+    [0,0,1,0,1,0,1,0,0],
+    ]
+
 const TicTacToe = () => {
     const [boardValue, setBoardValue] = useState(['','','','','','','','','']);
     const [countMove, setCountMove] = useState(0);
-    const [MoveSymbol, setMoveSymbol] = useState(0);
     const [cellStatus, setCellStatus] = useState([0,0,0,0,0,0,0,0,0]);
     let arrayStatus=[0,0,0,0,0,0,0,0,0];
-    //let arrayValue=['','','','','','','','',''];
     
     function Move_c11 (index){
     // Verify the status of the cell
@@ -18,15 +31,11 @@ const TicTacToe = () => {
     else{
         arrayStatus[index]=1;
         setCellStatus(arrayStatus);
-        console.log('test'+cellStatus[index])
         if(countMove%2!=0){
-            setMoveSymbol('O');
-            //arrayValue[index]='O';
             setBoardValue(boardValue.map((elm,ind)=>ind==index? 'O': elm));
             //setBoardValue([]);
         }
         if(countMove%2==0){
-            setMoveSymbol('X');
             setBoardValue(boardValue.map((elm,ind)=>ind==index? 'X': elm));
         }
         setCountMove(countMove+1);
@@ -45,6 +54,7 @@ const TicTacToe = () => {
         <div className="c32 black"><span onClick={()=>Move_c11(7)}>{boardValue[7]}</span></div>
         <div className="c33 white"><span onClick={()=>Move_c11(8)}>{boardValue[8]}</span></div>
        </div>
+       <button className="btn btn-primary" onClick={()=>{console.log(cellStatus)}}>Get Outcome</button>
 </div>
     );
 };
