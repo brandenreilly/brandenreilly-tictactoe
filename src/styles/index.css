@@ -34,3 +34,35 @@ body {
 .O:hover {
     background: #717780;
 }
+
+
+/*   Wendy's CSS */
+.theBoard{
+
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr ;
+    gap: 15px;
+    position: relative;
+
+ margin: auto;
+ 
+}
+span{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    color: gray;
+}
+
+.white, .black{
+    width: 100px;
+    height: 100px;
+    background-color: lightcoral;
+    display: flex;
+   justify-content: center;
+
+}

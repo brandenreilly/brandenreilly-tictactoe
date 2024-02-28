@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PlayingField from "./playingfield";
+import TicTacToe from "./board";
 
 const MainMenu = () => {
     const [visible, setVisible] = useState(true)
@@ -23,12 +23,12 @@ const MainMenu = () => {
             </div>
         </div>
         <div className="playingField" style={{display: visible ? "none" : "block" }}>
-            <PlayingField /> 
-            <button className="btn btn-secondary" onClick={() => {
+            <TicTacToe /> 
+            {/* <button className="btn btn-secondary" onClick={() => {
                 if(visible == false){
                     setVisible(!visible)
                 }
-                }}>Start Over!</button>
+                }}>Start Over!</button> */}
         </div>
     </div>
     )
