@@ -7,6 +7,7 @@ const MainMenu = () => {
     <div className="text-center">
         <div className="header">
             <h1 className="mt-3">Tic Tac Toe in React.js</h1>
+            
         </div>
         <div style={{display: visible ? "block" : "none" }}>
             <h2 className="mt-4">Pick A Weapon</h2>
@@ -23,7 +24,7 @@ const MainMenu = () => {
             </div>
         </div>
         <div className="playingField" style={{display: visible ? "none" : "block" }}>
-            <TicTacToe /> 
+            <TicTacToe visible={setVisible}/> 
             <button className="restartBtn btn btn-secondary" onClick={() => {
                 if(visible == false){setVisible(!visible)}}}>Start Over!</button>
         </div>

@@ -34,9 +34,6 @@ body {
 .O:hover {
     background: #717780;
 }
-
-
-/*   Wendy's CSS */
 .theBoard{
 
     width: 300px;
@@ -55,17 +52,14 @@ span{
     height: 100px;
     font-size: 60px;
     color: #666361;
-    
     cursor: pointer;
 }
-
 .white, .black{
     width: 100px;
     height: 100px;
     background-color: grey;
     display: flex;
    justify-content: center;
-
 }
 .restartBtn {
     margin-top: 50px;

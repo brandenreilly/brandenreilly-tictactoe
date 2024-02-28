@@ -1,26 +1,12 @@
 import React from "react";
 import { useState , useEffect } from "react";
 
-const winningOutcomes = 
-   [
-    //All Possible Horizontal Winning Outcomes
-    [1,1,1,0,0,0,0,0,0],
-    [0,0,0,1,1,1,0,0,0],
-    [0,0,0,0,0,0,1,1,1],
-    //All Possible Vertical Winning Outcomes
-    [1,0,0,1,0,0,1,0,0],
-    [0,1,0,0,1,0,0,1,0],
-    [0,0,1,0,0,1,0,0,1],
-    //All Possible Diagonal Winning Outcomes
-    [1,0,0,0,1,0,0,0,1],
-    [0,0,1,0,1,0,1,0,0],
-    ]
-
-const TicTacToe = (props) => {
+const TicTacToe = () => {
     const [boardValue, setBoardValue] = useState(['','','','','','','','','']);
     const [countMove, setCountMove] = useState(0);
     const [cellStatus, setCellStatus] = useState([0,0,0,0,0,0,0,0,0]);
     const [winner, setWinner] = useState("")
+    const [visible, setVisible] = useState(false)
     let arrayStatus=[0,0,0,0,0,0,0,0,0];
     useEffect(()=>{
         testWinner()
@@ -57,10 +43,11 @@ let firstDiag = boardValue[0] + boardValue[4] + boardValue[8]
 let secondDiag = boardValue[2] + boardValue[4] + boardValue[6]
 const testWinner = () => {
     if(topRow.match('XXX') || middleRow.match('XXX') || bottomRow.match('XXX') || leftCol.match('XXX') || middleCol.match('XXX') || rightCol.match('XXX') || firstDiag.match('XXX') || secondDiag.match('XXX')){
-        setWinner("X")
-        
+        setWinner("X");
+        setVisible(!visible)
     }else if(topRow.match('OOO') || middleRow.match('OOO') || bottomRow.match('OOO') || leftCol.match('OOO') || middleCol.match('OOO') || rightCol.match('OOO') || firstDiag.match('OOO') || secondDiag.match('OOO')){
-        setWinner("O")
+        setWinner("O");
+        setVisible(!visible)
     }
 }
 if(winner){
@@ -68,6 +55,9 @@ if(winner){
 }
 	return	(
         <div class="container">
+            <div style={{display: visible ? "block" : "none" }}>
+                <h1>{winner} has won!!</h1>
+            </div>
        <div className="theBoard">
         <div className="c1 white" ><span onClick={()=>Move_c11(0)}>{boardValue[0]}</span></div>
         <div className="c12 black"><span onClick={()=>Move_c11(1)}>{boardValue[1]}</span></div>
@@ -78,6 +68,14 @@ if(winner){
         <div className="c31 white"><span onClick={()=>Move_c11(6)}>{boardValue[6]}</span></div>
         <div className="c32 black"><span onClick={()=>Move_c11(7)}>{boardValue[7]}</span></div>
         <div className="c33 white"><span onClick={()=>Move_c11(8)}>{boardValue[8]}</span></div>
+        <div>
+            <button className="" onClick={()=>{
+                      setBoardValue(boardValue.map((elm,ind)=>ind==ind? '': elm));
+                      setCellStatus(cellStatus.map((elm,ind)=>ind==ind? 0: elm));
+                      setWinner('');
+                      setVisible(!visible)
+            }}>Reset</button>
+        </div>
        </div>
 </div>
     );
