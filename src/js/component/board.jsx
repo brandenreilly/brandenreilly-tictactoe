@@ -15,7 +15,7 @@ const TicTacToe = ( {name1,name2} ) => {
     
     function Move_c11 (index){
     // Verify the status of the cell
-    if(cellStatus[index]==1)
+    if(cellStatus[index]==1 || cellStatus[index]==2)
     {
       alert('You cant play again here');
     }
@@ -50,9 +50,6 @@ const testWinner = () => {
         setWinner(name2);
         setVisible(!visible)
     }
-}
-if(winner){
-    alert(winner + " has won!")
 }
 	return	(
         <div class="container">

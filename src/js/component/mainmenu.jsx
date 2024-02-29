@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TicTacToe from "./board";
+import Modal from "./modal.jsx"
 
 const MainMenu = () => {
     const [visible, setVisible] = useState(true)
