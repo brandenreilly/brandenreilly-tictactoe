@@ -74,7 +74,8 @@ if(winner){
                       setBoardValue(boardValue.map((elm,ind)=>ind==ind? '': elm));
                       setCellStatus(cellStatus.map((elm,ind)=>ind==ind? 0: elm));
                       setWinner('');
-                      setVisible(!visible)
+                      if (visible != false){
+                      setVisible(!visible)}
             }}>Reset</button>
         </div>
        </div>
