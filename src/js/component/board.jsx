@@ -1,7 +1,8 @@
 import React from "react";
 import { useState , useEffect } from "react";
+import MainMenu from "./mainmenu";
 
-const TicTacToe = () => {
+const TicTacToe = ( {name1,name2} ) => {
     const [boardValue, setBoardValue] = useState(['','','','','','','','','']);
     const [countMove, setCountMove] = useState(0);
     const [cellStatus, setCellStatus] = useState([0,0,0,0,0,0,0,0,0]);
@@ -43,10 +44,10 @@ let firstDiag = boardValue[0] + boardValue[4] + boardValue[8]
 let secondDiag = boardValue[2] + boardValue[4] + boardValue[6]
 const testWinner = () => {
     if(topRow.match('XXX') || middleRow.match('XXX') || bottomRow.match('XXX') || leftCol.match('XXX') || middleCol.match('XXX') || rightCol.match('XXX') || firstDiag.match('XXX') || secondDiag.match('XXX')){
-        setWinner("X");
+        setWinner(name1);
         setVisible(!visible)
     }else if(topRow.match('OOO') || middleRow.match('OOO') || bottomRow.match('OOO') || leftCol.match('OOO') || middleCol.match('OOO') || rightCol.match('OOO') || firstDiag.match('OOO') || secondDiag.match('OOO')){
-        setWinner("O");
+        setWinner(name2);
         setVisible(!visible)
     }
 }
@@ -69,7 +70,7 @@ if(winner){
         <div className="c32 black"><span onClick={()=>Move_c11(7)}>{boardValue[7]}</span></div>
         <div className="c33 white"><span onClick={()=>Move_c11(8)}>{boardValue[8]}</span></div>
         <div>
-            <button className="" onClick={()=>{
+            <button className=" resetBtn btn btn-secondary" onClick={()=>{
                       setBoardValue(boardValue.map((elm,ind)=>ind==ind? '': elm));
                       setCellStatus(cellStatus.map((elm,ind)=>ind==ind? 0: elm));
                       setWinner('');

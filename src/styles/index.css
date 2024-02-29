@@ -106,3 +106,7 @@ span{
     border-left: 1px solid black;
     border-top: 1px solid black;
 }
+.resetBtn {
+    position: relative;
+    transform: translate(100px, 100px);
+}
