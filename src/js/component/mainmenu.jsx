@@ -19,7 +19,8 @@ const MainMenu = () => {
     return (
     <div className="text-center">
         <div className="header">
-            <h1 className="mt-3 mb-5">Tic Tac Toe in React.js</h1>
+            <h1 className="mt-3 mb-3">Tic Tac Toe in React.js</h1>
+            <h1 className="mb-3" style={{display: visible ? "none" : "block" }}><strong>{name1}</strong> and <strong>{name2}</strong> are playing.</h1>
         </div>
         <div style={{display: visible ? "block" : "none" }}>
             <h2 className="mt-4">Pick A Weapon</h2>

@@ -54,7 +54,7 @@ const testWinner = () => {
 	return	(
         <div class="container">
             <div style={{display: visible ? "block" : "none" }}>
-                <h1>{winner} has won!!</h1>
+                <h1 className="mb-3"><strong>{winner}</strong> has won!!</h1>
             </div>
        <div className="theBoard">
         <div className="c1 white" ><span onClick={()=>Move_c11(0)}>{boardValue[0]}</span></div>
